@@ -63,7 +63,7 @@ export default function MemeDetails() {
   const shareUrl = encodeURIComponent(window.location.href);
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    alert("Link copied to clipboard!");
+    toast.success("Link copied to clipboard!");
   };
 
   if (!meme) {
@@ -140,11 +140,11 @@ export default function MemeDetails() {
 
             {/* Floating Share Popup */}
             {showPopup && (
-              <div className="absolute top-12 right-0 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-lg shadow-lg w-48 z-50">
+              <div className="absolute top-1 left-28 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-lg shadow-lg w-48 z-50">
                 {/* Close Button */}
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="absolute top-1 right-1"
+                  className="absolute top-1 left-1"
                 >
                   <X className="w-4 h-4 text-gray-600 hover:text-gray-800 dark:text-gray-300" />
                 </button>
