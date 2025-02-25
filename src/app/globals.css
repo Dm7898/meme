@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+button, input, optgroup, select, textarea {
+  font-family: "Poppins", serif !important;
+}
+.dark {
+  background-color: #121212;
+  color: white;
+}
