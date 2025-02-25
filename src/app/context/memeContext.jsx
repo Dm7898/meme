@@ -11,9 +11,16 @@ const MemeProvider = ({ children }) => {
   const [likedMemes, setLikedMemes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [likedMemeIds, setLikedMemeIds] = useState(new Set());
-  const [uploadedMemes, setUploadedMemes] = useState(() => {
-    return JSON.parse(localStorage.getItem("uploadedMemes")) || [];
-  });
+  const [uploadedMemes, setUploadedMemes] = useState([]);
+
+  // Fetch uploaded memes from localStorage on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedMemes =
+        JSON.parse(localStorage.getItem("uploadedMemes")) || [];
+      setUploadedMemes(storedMemes);
+    }
+  }, []);
 
   // Fetch memes from API and localStorage
   useEffect(() => {
@@ -22,12 +29,7 @@ const MemeProvider = ({ children }) => {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`);
         const fetchedMemes = res.data.data.memes.slice(0, 10);
 
-        // Retrieve user-uploaded memes
-        const storedMemes =
-          JSON.parse(localStorage.getItem("uploadedMemes")) || [];
-
-        // Merge and remove duplicates
-        setMemes([...storedMemes, ...fetchedMemes]);
+        setMemes((prevMemes) => [...uploadedMemes, ...fetchedMemes]);
       } catch (err) {
         console.error("Error fetching memes:", err);
       } finally {
@@ -36,17 +38,19 @@ const MemeProvider = ({ children }) => {
     };
 
     fetchMemes();
-  }, []);
+  }, [uploadedMemes]);
 
   // Load liked meme IDs once
   useEffect(() => {
-    const likedIds = new Set(
-      Object.keys(localStorage)
-        .filter((key) => key.startsWith("liked-"))
-        .map((key) => key.replace("liked-", ""))
-    );
+    if (typeof window !== "undefined") {
+      const likedIds = new Set(
+        Object.keys(localStorage)
+          .filter((key) => key.startsWith("liked-"))
+          .map((key) => key.replace("liked-", ""))
+      );
 
-    setLikedMemeIds(likedIds);
+      setLikedMemeIds(likedIds);
+    }
   }, []);
 
   // Update likedMemes when memes change
@@ -67,7 +71,11 @@ const MemeProvider = ({ children }) => {
   const addMeme = useCallback((newMeme) => {
     setUploadedMemes((prevMemes) => {
       const updatedMemes = [newMeme, ...prevMemes];
-      localStorage.setItem("uploadedMemes", JSON.stringify(updatedMemes));
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem("uploadedMemes", JSON.stringify(updatedMemes));
+      }
+
       return updatedMemes;
     });
   }, []);
