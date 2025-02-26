@@ -76,13 +76,15 @@ export default function LeaderboardPage() {
                   <h2 className="text-base font-semibold flex items-center gap-2">
                     {index < 3 && rankIcons[index]} #{index + 1} Meme
                   </h2>
-                  <Image
-                    src={meme.url}
-                    alt={`Meme ${index + 1}`}
-                    width={150}
-                    height={150}
-                    className="w-full h-auto rounded-lg mt-3 shadow-md object-cover"
-                  />
+                  <div className="mt-2 w-full h-48 sm:h-72 relative">
+                    <Image
+                      src={meme.url}
+                      alt={meme.name || "Meme"}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-lg"
+                    />
+                  </div>
                   <p className="text-gray-600 dark:text-gray-300 mt-3 flex items-center gap-2">
                     <Heart className="text-red-500" /> {meme.likes || 0} Likes
                   </p>

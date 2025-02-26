@@ -218,13 +218,15 @@ export default function UploadMeme() {
                 className="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md"
               >
                 {meme.url && (
-                  <Image
-                    src={meme.url}
-                    width={200}
-                    height={200}
-                    alt={meme.name || "Meme"}
-                    className="w-full h-auto rounded-lg"
-                  />
+                  <div className="w-full h-48 sm:h-72 relative">
+                    <Image
+                      src={meme.url}
+                      alt={meme.name || "Meme"}
+                      layout="fill" // Makes it cover the container
+                      objectFit="cover" // Ensures it fills without distortion
+                      className="rounded-lg"
+                    />
+                  </div>
                 )}
                 <p className="mt-2 text-center text-black dark:text-white">
                   {meme.name}
