@@ -152,13 +152,13 @@ export default function ProfilePage() {
               {uploadedMemes.map((meme) => (
                 <div
                   key={meme.id}
-                  className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shadow-md transition hover:scale-105"
+                  className="bg-gray-100 dark:bg-gray-800 p-2  h-48 sm:h-72 relative rounded-lg shadow-md transition hover:scale-105"
                 >
                   <Image
                     src={meme.url}
                     alt="Meme"
-                    width={200}
-                    height={200}
+                    layout="fill" // Makes it cover the container
+                    objectFit="cover"
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
@@ -181,13 +181,13 @@ export default function ProfilePage() {
               {likedMemes.map((meme) => (
                 <div
                   key={meme.id}
-                  className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shadow-md transition hover:scale-105"
+                  className="bg-gray-100 dark:bg-gray-800 p-2  h-48 sm:h-72 relative rounded-lg shadow-md transition hover:scale-105"
                 >
                   <Image
                     src={meme.url}
                     alt="Meme"
-                    width={200}
-                    height={200}
+                    layout="fill" // Makes it cover the container
+                    objectFit="cover"
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
