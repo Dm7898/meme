@@ -85,7 +85,7 @@ export default function MemeDetails() {
       >
         {/* Title */}
         <motion.h1
-          className="text-3xl font-bold text-center mb-4 text-[#292b29] dark:text-white"
+          className="text-2xl sm:text-3xl font-bold text-center mb-4 text-[#292b29] dark:text-white"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -140,11 +140,11 @@ export default function MemeDetails() {
 
             {/* Floating Share Popup */}
             {showPopup && (
-              <div className="absolute top-1 left-28 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-lg shadow-lg w-48 z-50">
+              <div className="absolute top-1 left-24 sm:left-28 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-lg shadow-lg w-36 sm:w-48 z-50">
                 {/* Close Button */}
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="absolute top-1 left-1"
+                  className="absolute top-2 left-1"
                 >
                   <X className="w-4 h-4 text-gray-600 hover:text-gray-800 dark:text-gray-300" />
                 </button>
@@ -153,11 +153,11 @@ export default function MemeDetails() {
                   Share Meme
                 </h2>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 text-xs">
                   {/* Copy Link */}
                   <button
                     onClick={handleCopyLink}
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded transition"
+                    className="flex items-center gap-2 px-2 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded transition"
                   >
                     <Clipboard className="w-4 h-4" /> Copy Link
                   </button>
@@ -167,7 +167,7 @@ export default function MemeDetails() {
                     href={`https://wa.me/?text=Check%20out%20this%20meme!%20${shareUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition"
+                    className="flex items-center gap-2 px-2 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition"
                   >
                     <Share2 className="w-4 h-4" /> WhatsApp
                   </Link>
@@ -177,7 +177,7 @@ export default function MemeDetails() {
                     href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20meme!%20${shareUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition"
+                    className="flex items-center gap-2 px-2 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition"
                   >
                     <Share2 className="w-4 h-4" /> Twitter
                   </Link>

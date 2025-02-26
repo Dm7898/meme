@@ -25,7 +25,7 @@ export default function Home() {
             🔥 Trending Memes
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {memoizedMemes.map((meme, index) => (
               <div
                 key={meme.id}
@@ -33,7 +33,7 @@ export default function Home() {
               >
                 <Link
                   href={`/meme/${meme.id}`}
-                  className="block focus:ring-2 focus:bg-gray-400"
+                  className="block focus:ring-2 focus:ring-gray-400"
                 >
                   {meme.url ? (
                     <div className="h-60 w-full overflow-hidden">

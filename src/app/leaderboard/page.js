@@ -23,7 +23,7 @@ export default function LeaderboardPage() {
     >
       <motion.div className="max-w-6xl w-full">
         {/* Header */}
-        <motion.h1 className="text-4xl font-bold flex items-center gap-2 justify-center">
+        <motion.h1 className="text-2xl sm:text-4xl font-bold flex items-center gap-2 justify-center">
           <Award className="text-yellow-500" /> Meme Leaderboard
         </motion.h1>
         <p className="text-gray-500 dark:text-gray-400 text-center">

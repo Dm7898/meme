@@ -40,7 +40,7 @@ export default function Explorer() {
       className="min-h-screen bg-[#fffdfa] dark:bg-darkBg text-black dark:text-white p-6 mt-20"
     >
       <div className="relative max-w-6xl mx-auto mb-6 flex flex-col justify-between sm:flex-row ">
-        <h1 className="text-3xl font-semibold">Explore Memes</h1>
+        <h1 className="text-2xl sm:text-3xl font-semibold">Explore Memes</h1>
         <div className="relative">
           <label htmlFor="searchMemes" className="sr-only">
             Search Memes

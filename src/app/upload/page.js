@@ -123,7 +123,9 @@ export default function UploadMeme() {
       <div className="max-w-6xl w-full flex flex-col md:flex-row gap-8">
         {/* Left: Upload Form */}
         <div className="w-full md:w-2/5">
-          <h1 className="text-3xl font-semibold mb-6">Upload Your Meme</h1>
+          <h1 className="text-2xl sm:text-4xl font-semibold mb-6">
+            Upload Your Meme
+          </h1>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
